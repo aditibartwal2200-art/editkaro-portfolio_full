@@ -1,93 +1,100 @@
-# Editkaro.in — Website
+# Editkaro.in — Social Video Editing Studio Website
 
-Multi-page static site for Editkaro.in, a social video editing studio.
+A multi-page static website for **Editkaro.in**, a social video editing studio offering short-form, long-form, gaming, football, ecommerce, documentary, color grading, anime, and ad edits.
 
-## Pages
-- `index.html` — Home: hero, filmstrip category preview, services, process, email subscribe form, contact CTA.
-- `portfolio.html` — Portfolio: all client work, filterable by category (Short-Form, Long-Form, Gaming, Football, eCommerce Ads, Documentary, Color Grade, Anime, Ads), with a video lightbox.
-- `about.html` — About Us: mission, vision, values, stats, and a team section (currently placeholder names/roles/photos — swap in real ones any time, see below).
-- `contact.html` — Contact Us: validated form (name, email, phone, message) that writes to Google Sheets.
-- `404.html` — not-found page for hosting platforms that support custom 404s.
+Live repo: https://github.com/aditibartwal2200-art/editkaro-portfolio_full
 
-## File structure
+---
+## 🚀 Live Demo
+👉 **[View Live Site](https://6a633eeddaca1d6d4fa1aeab--editkaro-portfolio-full.netlify.app/)**
+---
+
+## 📄 Pages
+
+| Page | Description |
+|---|---|
+| `index.html` | Home — hero section, filmstrip category preview, services, process steps, newsletter signup, contact CTA |
+| `portfolio.html` | Portfolio — all client work, filterable by category, with a video lightbox |
+| `about.html` | About Us — mission, vision, values, stats, and team section |
+| `contact.html` | Contact — validated form (name, email, phone, message) that writes to Google Sheets |
+| `404.html` | Custom not-found page |
+
+---
+
+## 📁 Project Structure
+
 ```
 editkaro/
-  index.html
-  portfolio.html
-  about.html
-  contact.html
-  404.html
-  robots.txt
-  sitemap.xml
-  css/style.css
-  js/common.js      (nav toggle, footer year, toast — every page)
-  js/home.js         (filmstrip preview — home page only)
-  js/portfolio.js     (filter + lightbox — portfolio page only)
-  js/forms.js         (newsletter + contact form logic — home & contact)
-  google-apps-script.gs (backend script to paste into Google Apps Script)
-  videos/             (put your .mp4 clips here — see "Adding real videos")
+├── index.html
+├── portfolio.html
+├── about.html
+├── contact.html
+├── 404.html
+├── robots.txt
+├── sitemap.xml
+├── google-apps-script.gs
+├── README.md
+├── .gitignore
+├── css/
+│   └── style.css
+├── js/
+│   ├── common.js       # nav toggle, footer year, toast — every page
+│   ├── home.js          # filmstrip preview — home page only
+│   ├── portfolio.js      # filter + lightbox — portfolio page only
+│   └── forms.js          # newsletter + contact form logic
+└── videos/               # NOT included in this repo — see below
 ```
 
-## Adding real videos
-Open `js/portfolio.js` (and, if you want them in the homepage preview strip too, `js/home.js`) and edit the `projects` / `sampleVideo` arrays. Each entry needs:
-```js
-{ cat: 'shortform', title: 'Reel — Streetwear Drop', ratio: '9:16', time: '00:00:28', video: 'videos/v1.mp4' }
-```
-`cat` must be one of: `shortform`, `longform`, `gaming`, `football`, `ecommerce`, `documentary`, `colorgrade`, `anime`, `ads`. Drop the actual `.mp4` files into `videos/`.
+> ⚠️ **Note:** The `videos/` folder and all `.mp4` files are intentionally excluded from this repository (see `.gitignore`) to keep the repo lightweight. Videos must be hosted externally — see [Adding Real Videos](#-adding-real-videos) below.
 
-## Wiring up the Email Collector + Contact Form (Google Sheets)
-Both forms post to the **same** Google Apps Script Web App, which writes into two tabs of one Google Sheet (`Newsletter` and `Contact`).
+---
+
+## 📬 Wiring Up the Forms (Google Sheets)
+
+Both the newsletter signup and contact form post to a single Google Apps Script Web App, writing to two tabs (`Newsletter` and `Contact`) of one Google Sheet.
 
 1. Create a new Google Sheet.
-2. In the sheet, go to **Extensions → Apps Script**.
-3. Delete the placeholder `Code.gs` content and paste in the contents of `google-apps-script.gs` from this repo.
-4. Click **Deploy → New deployment**.
-   - Type: **Web app**
-   - Execute as: **Me**
-   - Who has access: **Anyone**
-5. Click **Deploy**, authorize the script when prompted, and copy the **Web app URL** it gives you (looks like `https://script.google.com/macros/s/XXXX/exec`).
-6. Open `js/forms.js` and paste that URL into the `SCRIPT_URL` constant near the top of the file.
-7. Reload the site — both the homepage newsletter form and the Contact page form now write rows into your Sheet (`Newsletter` tab and `Contact` tab respectively) with a timestamp and the page the submission came from.
+2. Go to **Extensions → Apps Script**.
+3. Delete the placeholder code and paste in the contents of `google-apps-script.gs`.
+4. Click **Deploy → New deployment** → Type: **Web app** → Execute as: **Me** → Who has access: **Anyone**.
+5. Click **Deploy**, authorize the script, and copy the **Web app URL**.
+6. Paste that URL into the `SCRIPT_URL` constant near the top of `js/forms.js`.
+7. Reload the site — both forms now write to your Sheet.
 
-Until step 6 is done, both forms run in a safe **demo mode**: they still validate input and show a success message, but log the payload to the browser console instead of sending it anywhere, so the site is fully clickable/testable before the Sheet is wired up.
+Until step 6 is complete, forms run in **demo mode**: inputs are validated and a success message shows, but data logs to the browser console instead of being sent anywhere.
 
-### Alternative: a small backend API instead of Apps Script
-If you'd rather not use Apps Script, replace the `submitToSheet()` function in `js/forms.js` with a `fetch()` call to your own API endpoint, and have that endpoint write to Google Sheets via the [Sheets API](https://developers.google.com/sheets/api) (service account) or to any database/Excel export you prefer. The form validation and UI code doesn't need to change.
+---
 
-## Team placeholders
-`about.html` currently ships with four placeholder team members (name, role, one-line bio, and an initials avatar built from the site's own color palette — no broken image links). Replace the `<h3>` names, `.role` text, and bio `<p>` with real people, and swap the `.avatar` gradient for an `<img>` tag once you have real photos.
+## 👥 Team Placeholders
 
-## SEO & performance notes
-- Every page has a unique `<title>`, meta description, canonical URL, and Open Graph tags.
-- `robots.txt` and `sitemap.xml` are included — update the domain if it's not `editkaro.in`.
-- Videos use `preload="metadata"` and only start playing on hover/tap, so the initial page load stays light.
-- Google Fonts are loaded with `preconnect` for faster first paint.
-- All interactive elements are keyboard accessible (`tabindex`, `aria-*`, visible focus states) and the site respects `prefers-reduced-motion`.
-- Before shipping, run the site through [PageSpeed Insights](https://pagespeed.web.dev/) and compress any `.mp4` files (H.264, reasonable bitrate) — video weight is the biggest lever on this site.
+`about.html` currently ships with placeholder team members (name, role, bio, initials avatar). Replace with real names, roles, bios, and swap the `.avatar` gradient divs for `<img>` tags once real photos are available.
 
-## Deployment
-This is a static site — no build step required.
+---
 
-### Netlify
-1. Push this folder to a GitHub repo.
-2. In Netlify: **Add new site → Import an existing project**, pick the repo.
-3. Build command: *(leave blank)*. Publish directory: `/` (repo root, or wherever `index.html` lives).
-4. Deploy. Netlify auto-detects `404.html`.
+## 🔍 SEO & Performance
 
-### Vercel
-1. Push to GitHub, then **Import Project** in Vercel.
-2. Framework preset: **Other**. No build command needed.
-3. Deploy.
+- Unique `<title>`, meta description, canonical URL, and Open Graph tags on every page
+- `robots.txt` and `sitemap.xml` included — update the domain if not `editkaro.in`
+- Videos use `preload="metadata"` and only play on hover/tap for fast initial load
+- Google Fonts loaded with `preconnect` for faster first paint
+- Fully keyboard accessible (`tabindex`, `aria-*`, visible focus states)
+- Respects `prefers-reduced-motion`
+- Run through [PageSpeed Insights](https://pagespeed.web.dev/) before shipping, and compress `.mp4` files (H.264, reasonable bitrate)
 
-### GitHub Pages
-1. Push to a GitHub repo.
-2. Repo **Settings → Pages → Source**: deploy from the `main` branch, root folder.
-3. Site goes live at `https://<username>.github.io/<repo>/`. Update the canonical URLs and `sitemap.xml`/`robots.txt` if you're not on a custom domain.
+---
 
-## Known placeholders to replace before going live
-- `SCRIPT_URL` in `js/forms.js` (Google Sheets integration).
-- Team names/roles/photos in `about.html`.
-- Studio phone number and address in `contact.html`.
-- Social links (`instagram.com`, `youtube.com`, `linkedin.com` placeholders) across the footer and Contact page.
-- Real client videos in `videos/` referenced from `js/portfolio.js` / `js/home.js`.
-- `og:image` referenced in `index.html`.
+## ✅ Known Placeholders to Replace Before Going Live
+
+- [ ] `SCRIPT_URL` in `js/forms.js` (Google Sheets integration)
+- [ ] Team names, roles, and photos in `about.html`
+- [ ] Studio phone number and address in `contact.html`
+- [ ] Social links (Instagram, YouTube, LinkedIn) across footer and Contact page
+- [ ] Real client videos hosted externally, referenced in `js/portfolio.js` / `js/home.js`
+- [ ] `og:image` referenced in `index.html`
+- [ ] Domain references in `sitemap.xml` / `robots.txt` if not `editkaro.in`
+
+---
+
+## 📝 License
+
+Private project — all rights reserved by Editkaro.in.
