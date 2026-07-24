@@ -1,8 +1,6 @@
 # Editkaro.in — Social Video Editing Studio Website
 
-A multi-page static website for **Editkaro.in**, a social video editing studio offering short-form, long-form, gaming, football, ecommerce, documentary, color grading, anime, and ad edits.
-
-Live repo: https://github.com/aditibartwal2200-art/editkaro-portfolio_full
+A multi-page static website for **Editkaro.in**, a social video editing studio offering short-form, long-form, gaming, football, ecommerce, documentary, color grading, anime, and ad edits. Built with clean HTML, CSS, and vanilla JavaScript — no frameworks, no build step. The site features a filterable video portfolio, an animated filmstrip preview, and fully functional contact and newsletter forms backed by Google Sheets.
 
 ---
 ## 🚀 Live Demo
