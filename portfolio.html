@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Editkaro.in | Short-Form, Long-Form, Gaming, Football, eCommerce, Docs, Grade, Anime, Ads</title>
+<meta name="description" content="Browse Editkaro.in client work by category: short-form reels, long-form YouTube, gaming montages, football highlights, ecommerce ads, documentary edits, color grading, anime AMVs and ad cutdowns.">
+<link rel="canonical" href="https://editkaro.in/portfolio.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Portfolio — Editkaro.in">
+<meta property="og:description" content="Client work across nine video categories, one studio.">
+<meta property="og:url" content="https://editkaro.in/portfolio.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site">
+  <nav class="nav wrap">
+    <a href="index.html" class="logo">EDIT<span>KARO</span>.IN</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="contact.html" class="nav-cta">Start a project</a>
+      <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="page-header wrap">
+    <span class="eyebrow">Selected work</span>
+    <h1>Every clip, on the timeline</h1>
+    <p class="sub">Client deliveries across nine formats. Filter by category, or hand us your own footage and we'll tell you which lane it belongs in.</p>
+  </section>
+
+  <section class="work wrap" id="work">
+    <div class="filter-bar">
+      <div class="filter-time mono">
+        <span id="filterLabel">ALL CLIPS</span>
+        <span id="filterCount">0 clips</span>
+      </div>
+      <div class="chips" id="chips"></div>
+      <div class="track" id="track">
+        <div class="playhead" id="playhead"></div>
+      </div>
+    </div>
+
+    <div class="grid" id="grid"></div>
+    <p class="grid-empty" id="gridEmpty">No clips in this category yet — check back soon, or send us footage to fill it.</p>
+  </section>
+
+  <section class="contact-banner wrap" aria-labelledby="cta-h">
+    <span class="sec-kicker">Like what you see</span>
+    <h2 id="cta-h">Let's put your footage on this page.</h2>
+    <p>Send us the raw files and the platform you're cutting for — we'll place it in the right category.</p>
+    <div class="banner-ctas">
+      <a href="contact.html" class="btn btn-primary">Start a project</a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="foot-row">
+    <span class="logo" style="font-size:1rem;">EDIT<span>KARO</span>.IN</span>
+    <ul class="foot-links">
+      <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a></li>
+      <li><a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">YouTube</a></li>
+      <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <span class="foot-copy">© <span id="year"></span> Editkaro.in — cut in-house.</span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lb-panel" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
+    <div class="lb-thumb" id="lbThumb">
+      <span class="badge ratio" id="lbRatio"></span>
+      <span class="badge time" id="lbTime"></span>
+    </div>
+    <div class="lb-body">
+      <div>
+        <span class="tag" id="lbTag"></span>
+        <h3 id="lbTitle"></h3>
+        <p id="lbDesc"></p>
+      </div>
+      <button class="lb-close" id="lbClose">Close ✕</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/common.js" defer></script>
+<script src="js/portfolio.js" defer></script>
+</body>
+</html>

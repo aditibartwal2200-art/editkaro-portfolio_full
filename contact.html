@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Editkaro.in | Start a Project</title>
+<meta name="description" content="Tell Editkaro.in what you're shooting and where it's going. Send your name, email, phone, and message and we'll reply within one business day.">
+<link rel="canonical" href="https://editkaro.in/contact.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact — Editkaro.in">
+<meta property="og:description" content="Start a project with Editkaro.in.">
+<meta property="og:url" content="https://editkaro.in/contact.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site">
+  <nav class="nav wrap">
+    <a href="index.html" class="logo">EDIT<span>KARO</span>.IN</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html" aria-current="page">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="contact.html" class="nav-cta">Start a project</a>
+      <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="page-header wrap">
+    <span class="eyebrow">Let's cut something</span>
+    <h1>Got footage that needs a studio behind it?</h1>
+    <p class="sub">Tell us what you're shooting, where it's going, and we'll tell you which format wins. We reply within one business day.</p>
+  </section>
+
+  <section class="wrap" aria-labelledby="contact-h">
+    <h2 id="contact-h" class="visually-hidden">Contact form and studio details</h2>
+    <div class="contact-layout">
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="cName">Full name</label>
+            <input type="text" id="cName" name="name" placeholder="Your name" autocomplete="name" required>
+            <p class="err-text" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="cEmail">Email</label>
+            <input type="email" id="cEmail" name="email" placeholder="you@brand.com" autocomplete="email" required>
+            <p class="err-text" role="alert"></p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="cPhone">Phone number</label>
+          <input type="tel" id="cPhone" name="phone" placeholder="+91 98765 43210" autocomplete="tel" required>
+          <p class="err-text" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="cMessage">Message</label>
+          <textarea id="cMessage" name="message" placeholder="What are you shooting, and where's it going?" required></textarea>
+          <p class="err-text" role="alert"></p>
+        </div>
+        <button type="submit" class="btn btn-primary" id="cBtn" style="width:100%; justify-content:center;">Send message</button>
+        <p class="form-msg" id="cMsg" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="contact-side">
+        <div class="contact-info">
+          <span class="idx mono">EK/EMAIL</span>
+          <h3>Email</h3>
+          <p><a href="mailto:hello@editkaro.in">hello@editkaro.in</a></p>
+        </div>
+        <div class="contact-info">
+          <span class="idx mono">EK/PHONE</span>
+          <h3>Phone</h3>
+          <p><a href="tel:+911234567890">+91 12345 67890</a></p>
+        </div>
+        <div class="contact-info">
+          <span class="idx mono">EK/STUDIO</span>
+          <h3>Studio</h3>
+          <p>Remote-first — footage in, master out. Based in India, working with clients worldwide.</p>
+        </div>
+        <div class="contact-info">
+          <span class="idx mono">EK/SOCIAL</span>
+          <h3>Follow the cuts</h3>
+          <div class="socials">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">YT</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">IN</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="foot-row">
+    <span class="logo" style="font-size:1rem;">EDIT<span>KARO</span>.IN</span>
+    <ul class="foot-links">
+      <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a></li>
+      <li><a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">YouTube</a></li>
+      <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <span class="foot-copy">© <span id="year"></span> Editkaro.in — cut in-house.</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="js/common.js" defer></script>
+<script src="js/forms.js" defer></script>
+</body>
+</html>
